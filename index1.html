@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="/css&Js/style1.css">
+</head>
+<body onload="authCheck();getPost()">
+    <header class="blog-header">
+        <h1>Welcome to My Blog</h1>
+        <p>Sharing thoughts, ideas, and stories.</p>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index1.html">Home</a></li>
+            <li><a href="index3.html">My Blog</a></li>
+            <li><a href="index4.html">My Profile</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article class="blog-post">
+            <input type="text" id="title" placeholder="title">
+        <br>
+        <textarea type="text" id="desc" placeholder="desc"></textarea>
+        <br>
+        <input type="checkbox" id="checkbox"> is Private
+        <button onclick="blogPost()">BLOG POST</button>
+        </article>
+
+        <article class="blog-post">
+            <div id="parent">
+        </article>
+    </main>
+
+    <footer class="blog-footer">
+        <p>&copy; 2025 My Blog. All rights reserved By Muhammad Wajahat.</p>
+    </footer>
+</body>
+<script  src="/css&Js/app1.js" type="module"></script>
+</html>
