@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css&Js/style1.css">
 </head>
 <body onload="getdata()">
+    
     <header class="blog-header">
         <h1>Welcome to My Profile</h1>
         <p>Sharing thoughts, ideas, and stories.</p>
@@ -22,10 +23,36 @@
 
     <main>
         <article class="blog-post">
-            <div id="Profiledata">
-
-
+            <div class="options">
+                <a href="./index.html">
+                    <i class="fa-solid fa-house"></i>
+                    
+                </a>
             </div>
+            <h1>Your Profile</h1>
+        
+            <div id="Profiledata">
+                <div id="container">
+                    <h2>Full Name:</h2>
+                    <span id="username-display">${userData.username || "Not Provided"}</span>
+                    <input type="text" id="username-input" style="display: none;" value="${userData.username || ''}">
+                    <button class="btn" onclick="toggleEdit('username')">Edit</button>
+                    
+                    <h2>CNIC:</h2>
+                    <span id="cnic-display">${userData.cnic || "Not Provided"}</span>
+                    <input type="text" id="cnic-input" style="display: none;" value="${userData.cnic || ''}">
+                    <button class="btn" onclick="toggleEdit('cnic')">Edit</button>
+                
+                    <h2>Email:</h2>
+                    <span id="email-display">${userData.email || "Not Provided"}</span>
+                    <input type="email" id="email-input" style="display: none;" value="${userData.email || ''}">
+                    <button class="btn" onclick="toggleEdit('email')">Edit</button>
+                </div>
+                
+        
+        
+            </div>
+        
             
         </article>
 

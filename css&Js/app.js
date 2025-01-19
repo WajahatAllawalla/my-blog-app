@@ -1,4 +1,4 @@
-import { app, auth, db, doc, getDoc, signInWithEmailAndPassword } from "./firebase.js";
+import {  auth, db, doc, getDoc, signInWithEmailAndPassword } from "./firebase.js";
 
 const authCheck = () => {
     const userUid = localStorage.getItem("uid");

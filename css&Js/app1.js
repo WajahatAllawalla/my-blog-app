@@ -1,52 +1,55 @@
-import { addDoc, auth, collection, db, doc, getDocs, getDoc,updateDoc,deleteDoc } from "./firebase.js"
+import {
+    addDoc,
+    auth,
+    collection,
+    db,
+    doc,
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc
+} from "./firebase.js"
 
 
-// onAuthStateChanged(auth, (user) => {
-//     if (!user) {
-//         window.location.replace("./index.html")
-//     } else {
-//     }
-// })
 
 const authCheck = async () => {
     const userUid = localStorage.getItem("uid")
     console.log("userUid", userUid)
     if (!userUid) {
         window.location.replace("./index.html")
-    }   
+    }
     const userDoc = await getDoc(doc(db, "users", userUid));
-    // console.log(userDoc.data())
+   
 }
 
 const blogpost = async () => {
-    try{
+    try {
 
-        const title  = document.getElementById("title")
-        const description = document.getElementById("description")
+        const title = document.getElementById("title")
+        const description = document.getElementById("desc")
         const checkbox = document.getElementById("checkbox")
-        
+
         const obj = {
             title: title.value,
-            description: description.value,
-            isprivate : checkbox.checked,
-            uid : localStorage.getItem("uid")
+            description: desc.value,
+            isprivate: checkbox.checked,
+            uid: localStorage.getItem("uid")
         }
-        
+
         await addDoc(collection(db, "blogs"), obj)
         alert("blog created successfully!")
         getPost()
-    } 
-    catch(error){
+    } catch (error) {
         console.log(error.message)
     }
-             
+
 }
 
 const getPost = async () => {
     console.log("Fetching posts...");
     try {
         const parent = document.getElementById("parent");
-        parent.innerHTML = ""; 
+        parent.innerHTML = "";
 
         const snapShot = await getDocs(collection(db, "blogs"));
 
@@ -74,29 +77,6 @@ const getPost = async () => {
         console.error("Error fetching posts:", error.message);
     }
 };
-
-// const editPost = async () =>{
-//     try{
-        
-//     const docs = await getDocs(collection(db, "blogs"));
-
-//     // docs.forEach((doc) =>{
-//     //     const data = doc.data();
-//     //     const blogid = doc.id
-//     //     const isOwner = data.uid === localStorage.getItem("uid");
-//     //     console.log("blog id",blogid)
-//     //     console.log(isOwner)
-        
-//     // });
-
-
-
-
-//     }
-//     catch(error){
-//         console.log(error.message)
-//     }
-// }
 
 const editPost = async (Id) => {
     try {
@@ -132,7 +112,7 @@ const deletePost = async (Id) => {
         await deleteDoc(gettingdoc);
 
         alert("Post deleted successfully!");
-        getPost(); 
+        getPost();
     } catch (error) {
         console.log("Error deleting post:", error.message);
         alert("Failed to delete post. Please try again.");
@@ -152,7 +132,7 @@ const logout = () => {
 }
 
 window.blogpost = blogpost
-window.authCheck = authCheck    
+window.authCheck = authCheck
 window.getPost = getPost
 window.editPost = editPost
 window.deletePost = deletePost

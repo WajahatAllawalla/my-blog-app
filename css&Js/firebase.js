@@ -1,13 +1,28 @@
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import {
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-
-import { doc, setDoc, getFirestore, getDoc, collection, addDoc, getDocs, updateDoc, deleteDoc, query, where  } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
-
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+import {
+  doc,
+  setDoc,
+  getFirestore,
+  getDoc,
+  addDoc,
+  collection,
+  getDocs,
+  updateDoc,
+  deleteDoc,
+  query,
+  where
+} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -21,28 +36,27 @@ import { doc, setDoc, getFirestore, getDoc, collection, addDoc, getDocs, updateD
     measurementId: "G-324EHHK4K7"
   };
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
 
-// Initialize Authentication
-const auth = getAuth();
+ // Initialize Firebase
+ const app = initializeApp(firebaseConfig);
 
-// Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
+ const auth = getAuth(app);
+ const db = getFirestore(app);
 
-export {
-    app,
-    getAuth,
-    createUserWithEmailAndPassword,
-    auth,
-    doc, setDoc,
-    db,
-    signInWithEmailAndPassword,
-    getDoc,
-    onAuthStateChanged,
-    collection, addDoc,
-    getDocs,
-    updateDoc,
-    deleteDoc,
-    query,
-    where
-}
+ export {
+     createUserWithEmailAndPassword,
+     signInWithEmailAndPassword,
+     auth,
+     doc,
+     setDoc,
+     getDoc,
+     db,
+     onAuthStateChanged,
+     addDoc,
+     collection,
+     getDocs,
+     updateDoc,
+     deleteDoc,
+     query,
+     where
+ }
